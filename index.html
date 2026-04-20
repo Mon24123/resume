@@ -284,7 +284,6 @@
             color: var(--accent-orange);
         }
 
-        /* 轮播样式：每屏两张卡片，手机自动变为一张，无按钮 */
         .carousel {
             margin-top: 1rem;
             border-radius: 1rem;
@@ -299,10 +298,11 @@
             gap: 1rem;
             padding-bottom: 0.5rem;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: thin;
         }
         .carousel-slide {
-            flex: 0 0 calc(50% - 0.5rem);
+            flex: 0 0 auto;
+            width: 300px;
+            max-width: 320px;
             scroll-snap-align: start;
             background: var(--surface-card);
             border-radius: 0.8rem;
@@ -355,28 +355,27 @@
             font-size: 0.8rem;
         }
 
-        /* 五张图片紧凑排列 */
         .media-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.8rem;
+            gap: 1rem;
             justify-content: center;
             margin-top: 1rem;
         }
         .media-item {
-            flex: 1 1 18%;
-            min-width: 100px;
+            flex: 1;
+            min-width: 130px;
             background: var(--badge-bg);
             border-radius: 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 0.3rem;
+            padding: 0.5rem;
             cursor: pointer;
         }
         .media-item img {
-            width: 100%;
-            max-height: 130px;
+            max-width: 100%;
+            max-height: 150px;
             object-fit: contain;
             border-radius: 8px;
             transition: transform 0.2s;
@@ -385,9 +384,9 @@
             transform: scale(1.02);
         }
         .qr-text {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             color: var(--text-tertiary);
-            margin-top: 0.2rem;
+            margin-top: 0.3rem;
             text-align: center;
         }
 
@@ -508,7 +507,6 @@
             color: var(--accent-orange);
         }
 
-        /* 手机屏幕适配：每屏一张卡片，提示文字缩小 */
         @media (max-width: 768px) {
             .container { padding: 0 1rem; }
             .hero { flex-direction: column; align-items: flex-start; }
@@ -516,9 +514,21 @@
             .nav-container { flex-direction: column; align-items: stretch; }
             .nav-links { justify-content: center; }
             .nav-actions { justify-content: center; }
-            .media-item { flex-basis: 30%; }
-            .carousel-slide { flex: 0 0 calc(100% - 0.5rem); }
-            .practice-hint { font-size: 0.7rem; }
+            .media-item { min-width: 100px; }
+            .carousel-slide { width: 260px; }
+        }
+
+        @media print {
+            .navbar, .nav-actions, .back-to-top, .carousel-controls, .icon-btn, .modal {
+                display: none !important;
+            }
+            body, .card, .exp-item {
+                background: white;
+                color: black;
+                border: 1px solid #ccc;
+            }
+            .container { max-width: 100%; padding: 0; }
+            .section { margin: 1rem 0; }
         }
     </style>
 </head>
@@ -536,7 +546,7 @@
                 <a href="#education" data-nav>教育</a>
             </div>
             <div class="nav-actions">
-                <button id="themeToggle" class="icon-btn">🌓 深色</button>
+                <button id="themeToggle" class="icon-btn">🌓 浅色</button>
                 <button id="printBtn" class="icon-btn">🖨️ 打印</button>
             </div>
         </div>
@@ -570,13 +580,13 @@
                 name: "毛雨晴",
                 phone: "198-2260-9828",
                 email: "19822609828@163.com",
-                shortBio: "结果导向的私域运营者，12个月实战经验，擅长从流量承接到高客单价转化，善于使用AI提效。运营自媒体矩阵覆盖多平台，累计创造营收超70w。",
+                shortBio: "结果导向的私域运营者，12个月实战经验，擅长从流量承接到高客单价转化，善于使用AI提效，运营自媒体矩阵覆盖多平台，累计创造营收超70W。",
                 keywords: ["私域运营", "高客单转化", "AI提效", "内容创作", "用户增长", "双语使用者"]
             },
             highlights: [
-                { number: "¥70W+", label: "12个月私域累计GMV，服务180+付费用户" },
-                { number: "Top 10%", label: "团队业绩 Top10%，多次斩获月度销冠" },
-                { number: "4.7W+", label: "大学生垂类笔记爆款浏览量" },
+                { number: "¥700,000", label: "12个月私域累计GMV，转化180+付费用户" },
+                { number: "Top 10%", label: "于60+人私域团队中业绩常居 Top10%，多次斩获轮次销冠" },
+                { number: "47,000", label: "大学生垂类笔记爆款浏览量" },
                 { number: "100+篇", label: "长期稳定原创内容输出" }
             ],
             internships: [
@@ -586,19 +596,19 @@
                     period: "2025.04-2026.04",
                     points: [
                         { text: "全链路运营：累计成交180名付费学员（客单价≈4000元），营收70W+，业绩稳居团队前10%", highlight: false },
-                        { text: "转化优化：旺季收紧触达人数（1000→800人），单周最高成交9单（高于均值80%）；淡季业绩排名团队第一", highlight: true },
-                        { text: "存量盘活：淡季日均触达1000+人，主动协调资源，单轮业绩部门前列", highlight: false },
-                        { text: "AI降本增效：推动千问替代飞书妙记节省成本；独立搭建8个垂直场景AI智能体（Gems），覆盖运营全流程，单用户耗时↓30+%，承接能力翻倍，赋能60+人团队", highlight: true }
+                        { text: "转化优化：旺季收紧触达人数（1000→800人），单周最高成交9单（高于均值80%）；淡季优化用户分层话术，业绩排名团队第一", highlight: true },
+                        { text: "存量盘活：淡季日均触达1000+人，主动协调资源，业绩稳居部门前列", highlight: false },
+                        { text: "AI降本增效：推动通义千问替代原有转文字工具节省复盘成本；独立搭建8个垂直场景AI智能体（Gems），覆盖运营全流程，单用户耗时↓30+%，承接能力翻倍，赋能60+人团队", highlight: true }
                     ],
                     keyPractices: [
                         {
-                            title: "全链路运营业绩 Top2",
+                            title: "全链路运营业绩 Top",
                             desc: "2月团队规模 60 + 人，90% 成员按前端运营 / 后端咨询细分岗位作业，本人独立负责全链路运营，前端运营与后端咨询业绩均进入团队前6，总业绩位列全团队第 2，仅次于资深全职员工",
                             imgSrc: "february.jpg"
                         },
                         {
                             title: "8个垂直场景AI智能体 (Gems)",
-                            desc: "独立搭建 8 个垂直场景 AI 智能体（<strong>Gems</strong>），完整覆盖用户触达、IP人设维护、用户画像分析、1v1咨询生成、促单转化、话术复盘等用户运营全流程，落地后单用户<strong>人工耗时降低 30+%</strong>，单周<strong>有效承接能力翻倍</strong>，相关提效方法同步赋能 60 + 人团队并纳入新人培训。",
+                            desc: "独立搭建 8 个垂直场景 AI 智能体（<strong>Gems</strong>），完整覆盖用户运营全流程，落地后单用户<strong>人工耗时降低 30+%</strong>，单周<strong>有效承接能力翻倍</strong>，相关提效方法同步赋能 60 + 人团队并纳入新人培训。",
                             imgSrc: "agent.jpg"
                         },
                         {
@@ -623,9 +633,9 @@
             projects: [
                 {
                     name: "内容创作与个人实践",
-                    period: "2024.01 - 至今",
+                    period: "2023.10 - 至今",
                     techStack: ["小红书", "公众号", "今日头条"],
-                    result: "小红书单篇最高浏览量4.7W，互动量600+；公众号100+篇文章，最高浏览量7000+；今日头条单篇1W+。跑通内容-流量-变现全链路，实现商单、分成、打赏、私域多模式闭环。",
+                    result: "小红书单篇最高浏览量4.7W，最高互动量600+；公众号100+篇文章，最高浏览量7000+；今日头条单篇1W+。跑通内容-流量-变现全链路，实现商单、分成、打赏、私域多模式闭环。",
                     wechatImages: ["foot.jpg", "comment.jpg"],
                     xiaohongshuImages: ["xhs.jpg", "xhs2.jpg"],
                     qrCodeImage: "wxcode.jpg",
@@ -633,15 +643,15 @@
                 },
                 {
                     name: "私域拉新实践",
-                    period: "2024.10（一周）",
+                    period: "2026.02（一周）",
                     techStack: ["私域SOP", "话术设计", "转化设计"],
-                    result: "一周内针对9.9元公开课，差异化话术触达43人，20+报名，后续2人转化999元课程，形成闭环。"
+                    result: "一周内针对9.9元公开课，差异化话术触达43人，最终20+人报名，2人转化999元课程，形成闭环。"
                 }
             ],
             skills: {
                 ai: ["GPT系列", "Gemini", "千问", "Vibe Coding"],
                 content: ["Canva", "剪映", "Obsidian", "公众号排版"],
-                other: ["飞书多维表格", "私域全案", "数据分析", "用户访谈", "复盘SOP", "SQL", "Python"]
+                other: ["飞书多维表格", "私域全案", "数据分析", "复盘SOP", "SQL", "Python"]
             },
             education: {
                 school: "南京工业职业技术大学",
@@ -659,7 +669,7 @@
                     <div class="carousel-container">
                         ${items.map(item => `
                             <div class="carousel-slide">
-                                <div style="font-weight: 700; margin-bottom: 6px; color: var(--accent-orange); font-size:0.9rem;">${item.title}</div>
+                                <div style="font-weight: 700; margin-bottom: 6px; color: var(--accent-orange); font-size:1rem;">${item.title}</div>
                                 <div class="desc-text">${item.desc}</div>
                                 <div style="background: var(--badge-bg); padding: 6px; border-radius: 8px; width: 100%; margin-top: 6px;">
                                     <img src="${item.imgSrc}" alt="${item.title}" onclick="openModal('${item.imgSrc}')" style="cursor:pointer;">
@@ -672,7 +682,15 @@
         }
 
         function initCarousels() {
-            // 无需绑定按钮，纯手势滑动，只保证滚动容器存在即可
+            document.querySelectorAll('.carousel').forEach(carousel => {
+                const container = carousel.querySelector('.carousel-container');
+                const prev = carousel.querySelector('.carousel-prev');
+                const next = carousel.querySelector('.carousel-next');
+                if (prev && next && container) {
+                    prev.onclick = () => container.scrollBy({ left: -280, behavior: 'smooth' });
+                    next.onclick = () => container.scrollBy({ left: 280, behavior: 'smooth' });
+                }
+            });
         }
 
         function renderHero() {
@@ -711,13 +729,7 @@
                         <div class="exp-item">
                             <div class="exp-header"><span class="exp-company">${exp.company} · ${exp.role}</span><span class="exp-date">${exp.period}</span></div>
                             <ul class="exp-points">${exp.points.map(p => `<li class="${p.highlight ? 'exp-highlight' : ''}">${p.text}</li>`).join('')}</ul>
-                            ${exp.keyPractices && exp.keyPractices.length ? `
-                                <div style="margin-top:1rem;">
-                                    <div style="font-weight:600; color:var(--accent-orange); font-size:0.9rem;">📌 关键提效实践</div>
-                                    <div style="font-size:0.75rem; color:var(--text-tertiary); margin-bottom:0.5rem;">（手机左右滑动查看）</div>
-                                    ${renderCarouselPractice(exp.keyPractices)}
-                                </div>
-                            ` : ''}
+                            ${exp.keyPractices && exp.keyPractices.length ? `<div style="margin-top:1rem; font-weight:600; color:var(--accent-orange);font-size:0.85rem">📌 关键产出（手机需左右滑动）图片需点击</div>${renderCarouselPractice(exp.keyPractices)}` : ''}
                         </div>
                     `).join('')}
                 </div>
@@ -759,7 +771,7 @@
                                 </div>
                             </div>
                             <div style="text-align: center; margin-top: 0.8rem;">
-                                <a href="${contentProj.xiaohongshuLink}" target="_blank" style="color: var(--accent-orange);">🔗 跳转小红书主页 >></a>
+                                <a href="${contentProj.xiaohongshuLink}" target="_blank" style="color: var(--accent-orange);">🔗 点击跳转小红书主页 >></a>
                             </div>
                         </div>
                         <div class="project-card">
@@ -830,9 +842,16 @@
             const themeBtn = document.getElementById('themeToggle');
             const printBtn = document.getElementById('printBtn');
             const backBtn = document.getElementById('backToTop');
-            const isDark = localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-            if (isDark) document.body.classList.add('dark');
-            themeBtn.onclick = () => { document.body.classList.toggle('dark'); localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light'); };
+            // 强制默认深色模式
+            document.body.classList.add('dark');
+            // 如果之前有存储的主题，则覆盖为深色（确保一致性）
+            localStorage.setItem('theme', 'dark');
+            themeBtn.onclick = () => {
+                document.body.classList.toggle('dark');
+                const isDark = document.body.classList.contains('dark');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                themeBtn.textContent = isDark ? '🌓 浅色' : '🌓 深色';
+            };
             printBtn.onclick = () => window.print();
             window.addEventListener('scroll', () => { if (window.scrollY > 300) backBtn.classList.add('show'); else backBtn.classList.remove('show'); });
             backBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
