@@ -618,17 +618,17 @@
                         {
                             title: "全链路运营业绩 Top",
                             desc: "2月团队规模 60 + 人，90% 成员按前端运营 / 后端咨询细分岗位作业，本人独立负责全链路运营，前端运营与后端咨询业绩均进入团队前6，总业绩位列全团队第 2，仅次于资深全职员工",
-                            imgSrc: "february.jpg"
+                            imgSrc: "february.png"
                         },
                         {
                             title: "8个垂直场景AI智能体 (Gems)",
                             desc: "独立搭建 8 个垂直场景 AI 智能体（<strong>Gems</strong>），完整覆盖用户运营全流程，落地后单用户<strong>人工耗时降低 30+%</strong>，单周<strong>有效承接能力翻倍</strong>，相关提效方法同步赋能 60 + 人团队并纳入新人培训。",
-                            imgSrc: "agent.jpg"
+                            imgSrc: "agent.png"
                         },
                         {
                             title: "四维用户分层体系",
                             desc: "针对原开场话术分层粗放、无效沟通占比高的核心痛点，搭建年级 - 基础 - 投入度 - 目标4 维用户分层话术体系，实现高意向用户精准识别、非目标客户提前过滤，优化后高意向用户识别准确率提升 40+%，助力个人达成业绩Top并推广至全团队。",
-                            imgSrc: "chat.jpg"
+                            imgSrc: "chat.png"
                         }
                     ]
                 },
@@ -661,9 +661,9 @@
                     period: "2023.10 - 至今",
                     techStack: ["小红书", "公众号", "今日头条"],
                     result: "小红书单篇最高浏览量4.7W，最高互动量600+；公众号100+篇文章，最高浏览量7000+；今日头条单篇1W+。跑通内容-流量-变现全链路，实现商单、分成、打赏、社群多模式闭环。",
-                    wechatImages: ["foot.jpg", "comment.jpg"],
-                    xiaohongshuImages: ["xhs.jpg", "xhs2.jpg"],
-                    qrCodeImage: "wxcode.jpg",
+                    wechatImages: ["foot.png", "comment.png"],
+                    xiaohongshuImages: ["xhs.png", "xhs2.png"],
+                    qrCodeImage: "wxcode.png",
                     xiaohongshuLink: "https://xhslink.com/m/DnZHFcwTKL"
                 },
                 {
@@ -754,7 +754,7 @@
                         <div class="exp-item">
                             <div class="exp-header"><span class="exp-company">${exp.company} · ${exp.role}</span><span class="exp-date">${exp.period}</span></div>
                             <ul class="exp-points">${exp.points.map(p => `<li class="${p.highlight ? 'exp-highlight' : ''}">${p.text}</li>`).join('')}</ul>
-                            ${exp.keyPractices && exp.keyPractices.length ? `<div style="margin-top:1rem; font-weight:600; color:var(--accent-orange);font-size:0.85rem">📌 关键产出（手机需左右滑动）图片需点击</div>${renderCarouselPractice(exp.keyPractices)}` : ''}
+                            ${exp.keyPractices && exp.keyPractices.length ? `<div style="margin-top:1rem; font-weight:600; color:var(--accent-orange);font-size:0.85rem">📌 关键产出（可左右滑动，点击图片可放大）</div>${renderCarouselPractice(exp.keyPractices)}` : ''}
                         </div>
                     `).join('')}
                 </div>
