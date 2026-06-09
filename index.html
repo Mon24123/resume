@@ -584,6 +584,7 @@
                 phone: "198-2260-9828",
                 email: "maoyuqing2027@163.com",
                 github: "https://github.com/Mon24123",
+                portfolio: "https://mon24123.github.io/ai-product-portfolio/",
                 shortBio: "结果导向的用户运营实践者，12个月实战经验，擅长从流量承接到高客单价转化；持续探索AI工具、数据标注与个人效率产品，能把真实需求转化为可交付作品。",
                 keywords: ["用户运营", "高客单转化", "AI提效", "AI数据", "产品实践", "内容创作"]
             },
@@ -675,9 +676,10 @@
                 }
             ],
             skills: {
-                ai: ["GPT系列", "Gemini", "千问", "Codex", "Vibe Coding", "AI数据标注"],
+                ai: ["GPT系列", "Gemini", "千问", "Codex", "Vibe Coding", "AI数据标注", "Agent/Skill工作流"],
                 content: ["Canva", "剪映", "Obsidian", "公众号排版"],
-                other: ["Electron入门", "GitHub", "飞书多维表格", "用户运营", "数据分析", "复盘SOP", "SQL", "Python"]
+                other: ["Electron入门", "GitHub", "飞书多维表格", "用户运营", "数据分析", "复盘SOP", "SQL", "Python"],
+                aiWorkflow: "使用 Codex / Agent 搭建轻量内容生产工作流，可完成授权回放媒体处理、音频提取、ASR 转写、简中清洗、摘要提纲、HTML 页面与长图生成。"
             },
             education: {
                 school: "南京工业职业技术大学",
@@ -730,6 +732,7 @@
                         <div class="contact-buttons">
                             <a href="mailto:${emailFull}" class="btn-primary">📧 ${emailFull}</a>
                             <button class="btn-phone" id="callBtn">📞 ${resumeData.basics.phone}</button>
+                            <a href="${resumeData.basics.portfolio}" target="_blank" rel="noopener" class="btn-primary">AI 方向作品集</a>
                             <a href="${resumeData.basics.github}" target="_blank" rel="noopener" class="btn-primary">GitHub · Mon24123</a>
                         </div>
                     </div>
@@ -837,6 +840,10 @@
                         <div class="skill-category"><h4>🤖 AI 能力</h4><div class="skill-tags">${resumeData.skills.ai.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div></div>
                         <div class="skill-category"><h4>🎨 内容能力</h4><div class="skill-tags">${resumeData.skills.content.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div></div>
                         <div class="skill-category"><h4>⚙️ 其他</h4><div class="skill-tags">${resumeData.skills.other.map(s => `<span class="skill-tag">${s}</span>`).join('')}</div></div>
+                    </div>
+                    <div class="card" style="margin-top: 1rem;">
+                        <strong style="color: var(--accent-orange);">AI Native 工作流实践：</strong>
+                        <span style="color: var(--text-secondary); font-size: 0.95rem;">${resumeData.skills.aiWorkflow}</span>
                     </div>
                 </div>
             `;
